@@ -2,6 +2,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
+import { MatMenuModule } from '@angular/material/menu';
 import { MatToolbarModule } from '@angular/material/toolbar';
 
 import { AppComponent } from './app.component';
@@ -28,6 +30,8 @@ import { CaseAdderBarComponent } from './case-search-page/case-adder-bar/case-ad
     BrowserModule,
     BrowserAnimationsModule,
     MatButtonModule,
+    MatIconModule,
+    MatMenuModule,
     MatToolbarModule
   ],
   providers: [],

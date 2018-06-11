@@ -1,3 +1,31 @@
-<p>
-  case-summary works!
-</p>
+<div class="card">
+    <div class="header">
+        <div>
+            <h2>Knowledge Base Title</h2>
+            <div>
+                <span>12/14/17</span>
+                <span>Category 123</span>
+            </div>
+        </div>
+        <div>
+            <button mat-icon-button [matMenuTriggerFor]="menu">
+                <mat-icon aria-label="Options">more_vert</mat-icon>
+            </button>
+            <mat-menu #menu="matMenu">
+                <button mat-menu-item>
+                    <mat-icon>edit</mat-icon>
+                    <span>Edit</span>
+                </button>
+                <button mat-menu-item>
+                    <mat-icon>delete</mat-icon>
+                    <span>Delete</span>
+                </button>
+            </mat-menu>
+        </div>
+    </div>
+    <ul>
+        <li>Symptom where 123 is doing abc</li>
+        <li>Symptom where 123 is doing def</li>
+        <li>Symptom where 123 is doing xyz</li>
+    </ul>
+</div>
