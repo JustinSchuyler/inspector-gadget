@@ -1,4 +1,4 @@
 <mat-toolbar color="primary">
   <span>Inspector Gadget</span>
-  <input placeholder="Search...">
+  <input #barInput (keyup.enter)="search(barInput)" placeholder="Search...">
 </mat-toolbar>

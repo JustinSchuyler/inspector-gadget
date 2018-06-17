@@ -3,10 +3,15 @@
     padding: 10px 16px;
 }
 
-ig-case-filter-bar {
+.columns > .left-column {
     width: 25%;
 }
 
-ig-case-list {
+.columns > .right-column {
     width: 60%;
+}
+
+ig-case-symptom-list {
+    margin: 10px 0;
+    display: block;
 }

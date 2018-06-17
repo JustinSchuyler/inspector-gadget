@@ -1,3 +1,6 @@
-<p>
-  case-symptom-list works!
-</p>
+<mat-chip-list>
+  <mat-chip *ngFor="let symptom of symptoms" color="accent" [selected]="true" [removable]="true" (removed)="remove(symptom)">
+    {{symptom}}
+    <mat-icon matChipRemove>cancel</mat-icon>
+  </mat-chip>
+</mat-chip-list>
