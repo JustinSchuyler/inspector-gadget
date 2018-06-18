@@ -41,6 +41,11 @@ export class CaseSearchService {
     }
   }
 
+  removeAllSymptoms() {
+    this.symptomList = new Array<string>();
+    this.symptomListSource.next(this.symptomList);
+  }
+
   getCases(): Observable<Array<Case>> {
     console.log('xhr: get cases');
     const cases = Array.from(new Array(10), (val, index) => new Case({ title: `Knowledge Case ${index}: ${Math.random()}`}));

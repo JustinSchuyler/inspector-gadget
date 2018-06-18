@@ -18,8 +18,12 @@ export class CaseSymptomListComponent implements OnInit {
     });
   }
 
-  remove(symptom: string) {
+  removeSymptom(symptom: string) {
     this.caseSearchService.removeSymptom(symptom);
+  }
+
+  removeAllSymptoms() {
+    this.caseSearchService.removeAllSymptoms();
   }
 
 }

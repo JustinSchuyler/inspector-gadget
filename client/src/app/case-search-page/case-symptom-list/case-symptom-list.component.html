@@ -1,6 +1,11 @@
-<mat-chip-list>
-  <mat-chip *ngFor="let symptom of symptoms" color="accent" [selected]="true" [removable]="true" (removed)="remove(symptom)">
-    {{symptom}}
-    <mat-icon matChipRemove>cancel</mat-icon>
-  </mat-chip>
-</mat-chip-list>
+<div class="symptom-wrapper">
+  <mat-chip-list>
+      <mat-chip *ngFor="let symptom of symptoms" color="accent" [selected]="true" [removable]="true" (removed)="removeSymptom(symptom)">
+        {{symptom}}
+        <mat-icon matChipRemove>cancel</mat-icon>
+      </mat-chip>
+    </mat-chip-list>
+    <button *ngIf="symptoms && symptoms.length" mat-button type="button" title="Reset search" (click)="removeAllSymptoms()">
+      <mat-icon>clear_all</mat-icon>
+    </button>
+</div>
