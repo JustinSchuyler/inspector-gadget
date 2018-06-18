@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+
+import { Case } from '../../../shared/models/case';
 
 @Component({
   selector: 'ig-case-summary',
@@ -6,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./case-summary.component.scss']
 })
 export class CaseSummaryComponent implements OnInit {
+  @Input('case') case: Case;
 
   constructor() { }
 
