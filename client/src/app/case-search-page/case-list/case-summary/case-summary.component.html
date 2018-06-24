@@ -3,8 +3,8 @@
         <div>
             <h2>{{case.title}}</h2>
             <div>
-                <span>12/14/17</span>
-                <span>Category 123</span>
+                <span>{{ case.date }}</span>
+                <span>{{ case.category }}</span>
             </div>
         </div>
         <div>
@@ -24,8 +24,6 @@
         </div>
     </div>
     <ul>
-        <li>Symptom where 123 is doing abc</li>
-        <li>Symptom where 123 is doing def</li>
-        <li>Symptom where 123 is doing xyz</li>
+        <li *ngFor="let symptom of case.symptoms">{{ symptom }}</li>      
     </ul>
 </div>

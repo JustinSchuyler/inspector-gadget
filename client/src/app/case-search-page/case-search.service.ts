@@ -3,6 +3,7 @@ import { Observable, Subject, of, merge } from 'rxjs';
 import { debounceTime, take, map } from 'rxjs/operators';
 
 import { Case } from '../shared/models/case';
+import { CASES } from '../mock-cases';
 
 @Injectable({
   providedIn: 'root'
@@ -55,8 +56,8 @@ export class CaseSearchService {
   }
 
   getCases(): Observable<Array<Case>> {
-    const cases = Array.from(new Array(10), (val, index) => new Case({ title: `Knowledge Case ${index}: ${Math.random()}`}));
-    return of(cases);
+    console.log('xhr: get cases');
+    return of(CASES);
   }
 
   addFilters(terms) {
