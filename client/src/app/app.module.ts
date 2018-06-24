@@ -15,6 +15,8 @@ import { CaseSymptomListComponent } from './case-search-page/case-symptom-list/c
 import { CaseListComponent } from './case-search-page/case-list/case-list.component';
 import { CaseSummaryComponent } from './case-search-page/case-list/case-summary/case-summary.component';
 import { CaseAdderBarComponent } from './case-search-page/case-adder-bar/case-adder-bar.component';
+import { AppRoutingModule } from './/app-routing.module';
+import { CaseDetailsPageComponent } from './case-details-page/case-details-page.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +27,8 @@ import { CaseAdderBarComponent } from './case-search-page/case-adder-bar/case-ad
     CaseSymptomListComponent,
     CaseListComponent,
     CaseSummaryComponent,
-    CaseAdderBarComponent
+    CaseAdderBarComponent,
+    CaseDetailsPageComponent
   ],
   imports: [
     BrowserModule,
@@ -34,7 +37,8 @@ import { CaseAdderBarComponent } from './case-search-page/case-adder-bar/case-ad
     MatChipsModule,
     MatIconModule,
     MatMenuModule,
-    MatToolbarModule
+    MatToolbarModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]

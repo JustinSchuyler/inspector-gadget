@@ -1,4 +1,5 @@
 export class Case {
+    id: number;
     title: string;
 
     constructor(params?: any) {
