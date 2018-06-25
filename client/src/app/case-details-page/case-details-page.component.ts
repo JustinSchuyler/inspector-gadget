@@ -11,7 +11,7 @@ import { Case } from '../shared/models/case';
   styleUrls: ['./case-details-page.component.scss']
 })
 export class CaseDetailsPageComponent implements OnInit {
-  @Input() case: Case;
+  case: Case;
 
   constructor(
     private route: ActivatedRoute,
