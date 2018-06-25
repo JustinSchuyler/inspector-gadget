@@ -2,8 +2,8 @@ import { Injectable } from '@angular/core';
 import { Observable, Subject, of, merge } from 'rxjs';
 import { debounceTime, take, map } from 'rxjs/operators';
 
-import { Case } from '../shared/models/case';
-import { CASES } from '../mock-cases';
+import { Case } from '../models/case';
+import { CASES } from '../../mock-cases';
 
 @Injectable({
   providedIn: 'root'
@@ -59,6 +59,11 @@ export class CaseSearchService {
     console.log('xhr: get cases');
     return of(CASES);
   }
+
+  getCase(id: number): Observable<Case> {
+    console.log(`xhr: get case with id={id}`);
+    return of(CASES.find(caseDetail => caseDetail.id === id));
+  }  
 
   addFilters(terms) {
     this.filterTerms = terms;

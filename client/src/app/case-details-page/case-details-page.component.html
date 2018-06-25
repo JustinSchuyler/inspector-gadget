@@ -1,3 +1,26 @@
-<p>
-  case-details-page works!
-</p>
+<div *ngIf="case">
+    <h2>{{ case.title }} Details</h2>
+    <div><span>id: </span>{{case.id}}</div>
+    <div>{{ case.category }}</div>
+    <ul>
+        <li *ngFor="let tag of case.tags">
+          {{ tag }}
+        </li>
+    </ul>
+    <div>{{ case.date }}</div>
+    <ul>
+        <li *ngFor="let symptom of case.symptoms">
+          <div>{{ symptom }}</div>
+        </li>
+    </ul>
+    <div>{{ case.rootCause }}</div>
+    <div>{{ case.fixDescription }}</div>
+    <div>{{ case.fixSteps }}</div>
+    <div>{{ case.diagnosisSteps }}</div>
+    <ul>
+        <li *ngFor="let ticketURL of case.ticketURLs">
+          <div>{{ ticketURL }}</div>
+        </li>
+    </ul>
+</div>
+<button (click)="goBack()">Back to Case Search</button>
