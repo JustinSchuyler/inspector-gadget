@@ -11,7 +11,7 @@ export class Case {
     fixDescription: string;
     fixSteps: string;
     diagnosisSteps: string;
-    ticketURL: Array<string>;
+    ticketURLs: Array<string>;
 
     constructor(params?: any) {
         

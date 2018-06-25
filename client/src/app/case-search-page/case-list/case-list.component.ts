@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { CaseSearchService } from '../case-search.service';
+import { CaseSearchService } from '../../shared/services/case-search.service';
 import { Case } from '../../shared/models/case';
 
 @Component({

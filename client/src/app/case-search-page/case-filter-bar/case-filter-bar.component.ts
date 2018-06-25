@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 
-import { CaseSearchService } from '../case-search.service';
+import { CaseSearchService } from '../../shared/services/case-search.service';
 
 @Component({
   selector: 'ig-case-filter-bar',
