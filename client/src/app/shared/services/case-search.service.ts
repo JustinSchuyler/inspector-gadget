@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Observable, Subject, of, merge } from 'rxjs';
+import { Observable, BehaviorSubject, of, merge } from 'rxjs';
 import { debounceTime, take, map } from 'rxjs/operators';
 
 import { Case } from '../models/case';
@@ -10,10 +10,10 @@ import { CASES } from '../../mock-cases';
 })
 export class CaseSearchService {
   private symptomList = new Array<string>();
-  private symptomListSource = new Subject<Array<string>>();
+  private symptomListSource = new BehaviorSubject<Array<string>>(null);
   private filterTerms: any;
-  private filterTermsSource = new Subject<any>();
-  private caseListSource = new Subject<Array<Case>>();
+  private filterTermsSource = new BehaviorSubject<any>(null);
+  private caseListSource = new BehaviorSubject<Array<Case>>(null);
 
   symptomList$: Observable<Array<string>>;
   filterTerms$: Observable<any>;
@@ -61,9 +61,9 @@ export class CaseSearchService {
   }
 
   getCase(id: number): Observable<Case> {
-    console.log(`xhr: get case with id={id}`);
+    console.log(`xhr: get case with id=${id}`);
     return of(CASES.find(caseDetail => caseDetail.id === id));
-  }  
+  }
 
   addFilters(terms) {
     this.filterTerms = terms;

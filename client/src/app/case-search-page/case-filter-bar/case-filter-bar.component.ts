@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { take } from 'rxjs/operators';
 
 import { CaseSearchService } from '../../shared/services/case-search.service';
 
@@ -29,6 +30,12 @@ export class CaseFilterBarComponent implements OnInit {
 
     this.filters.valueChanges.subscribe(terms => {
       this.caseSearchService.addFilters(terms);
+    });
+
+    this.caseSearchService.filterTerms$.pipe(take(1)).subscribe(filters => {
+      if (filters) {
+        this.filters.patchValue(filters, { emitEvent: false });
+      }
     });
   }
 
