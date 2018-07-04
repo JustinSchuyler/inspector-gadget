@@ -2,17 +2,42 @@
     font-size: 1.2rem;
     cursor: pointer;
 
+    &:hover {
+        background-color: #fbfbfb;
+    }
+
     .header {
         display: flex;
         justify-content: space-between;
-        align-items: center;
 
-        h2 {
-            margin: 0;
+        .header-left {
+            h2 {
+                margin: 0;
+                font-size: 2rem;
+            }
+
+            p {
+                margin: 0;
+                font-style: italic;
+                color: #525252;
+            }
+        }
+
+        .header-right {
+            text-align: right;
+
+            .category {
+                font-size: 1.6rem;
+            }
         }
     }
-}
 
-.card:hover {
-    background-color: #fbfbfb;
+    ul.symptoms {
+        padding-left: 30px;
+
+        li {
+            margin-bottom: 2px;
+            font-size: 1.4rem;
+        }
+    }
 }

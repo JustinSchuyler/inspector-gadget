@@ -1,29 +1,15 @@
 <div class="card">
     <div class="header">
-        <div>
-            <h2>{{case.title}}</h2>
-            <div>
-                <span>{{ case.date }}</span>
-                <span>{{ case.category }}</span>
-            </div>
+        <div class="header-left">
+            <h2>{{ case.title }}</h2>
+            <p class="tags">{{ case.tags && case.tags.length ? case.tags.join(', ') : 'No tags' }}</p>
         </div>
-        <div>
-            <button mat-icon-button [matMenuTriggerFor]="menu">
-                <mat-icon aria-label="Options">more_vert</mat-icon>
-            </button>
-            <mat-menu #menu="matMenu">
-                <button mat-menu-item>
-                    <mat-icon>edit</mat-icon>
-                    <span>Edit</span>
-                </button>
-                <button mat-menu-item>
-                    <mat-icon>delete</mat-icon>
-                    <span>Delete</span>
-                </button>
-            </mat-menu>
+        <div class="header-right">
+            <div class="category">{{ case.category }}</div>
+            <div>{{ case.date | date:'short' }}</div>
         </div>
     </div>
-    <ul>
+    <ul class="symptoms">
         <li *ngFor="let symptom of case.symptoms">{{ symptom }}</li>      
     </ul>
 </div>
