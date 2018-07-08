@@ -6,13 +6,12 @@ import { CaseDetailsPageComponent } from './case-details-page/case-details-page.
 
 const routes: Routes = [
   { path: '', redirectTo: 'case-search', pathMatch: 'full' },
-  { path: 'case-search', component: CaseSearchPageComponent},
-  { path: 'case-details/:id', component: CaseDetailsPageComponent}
-]
+  { path: 'case-search', component: CaseSearchPageComponent, data: { state: 'case-search' }},
+  { path: 'case-details/:id', component: CaseDetailsPageComponent, data: { state: 'case-details' }}
+];
 
 @NgModule({
   imports: [ RouterModule.forRoot(routes) ],
   exports: [ RouterModule ]
-  
 })
 export class AppRoutingModule { }

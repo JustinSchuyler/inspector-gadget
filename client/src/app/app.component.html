@@ -1,1 +1,4 @@
-<router-outlet></router-outlet>
+<ig-case-search-bar></ig-case-search-bar>
+<div [@slideTransition]="getState(outlet)">
+    <router-outlet #outlet="outlet"></router-outlet>
+</div>

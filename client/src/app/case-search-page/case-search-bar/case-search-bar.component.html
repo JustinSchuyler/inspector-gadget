@@ -1,4 +1,12 @@
-<mat-toolbar color="primary">
-  <span>Inspector Gadget</span>
-  <input #barInput (keyup.enter)="search(barInput)" placeholder="Search...">
+<mat-toolbar [color]="color">
+  <div *ngIf="mode == 'search'" class="search-bar">
+    <span>Inspector Gadget</span>
+    <input #barInput (keydown.enter)="search(barInput)" placeholder="Search...">
+  </div>
+  <div *ngIf="mode == 'details'" class="details-bar">
+    <button mat-button (click)="goBack()">
+      <mat-icon>arrow_back</mat-icon>
+      <span>Back</span>
+    </button>
+  </div>
 </mat-toolbar>

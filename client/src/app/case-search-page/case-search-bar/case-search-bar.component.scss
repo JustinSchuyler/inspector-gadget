@@ -3,26 +3,38 @@ mat-toolbar {
     position: fixed;
     top: 0;
     z-index: 2;
+    transition: background 0.5s;
 
-    span {
-        width: 25%;
+    .search-bar,
+    .details-bar {
+        width: 100%;
+        display: flex;
+
+        span {
+            width: 25%;
+        }
+    
+        input {
+            width: 60%;
+            padding: 8px;
+            font-size: 1.6rem;
+            color: #fff;
+            background: rgba(255,255,255,.15);
+            border: none;
+            outline: none;
+        }
+    
+        input:focus {
+            outline: 1px solid rgba(255, 255, 255, .5);
+        }
+    
+        input::placeholder {
+            color: #fff;
+        }
     }
 
-    input {
-        width: 60%;
-        padding: 8px;
-        font-size: 1.6rem;
-        color: #fff;
-        background: rgba(255,255,255,.15);
-        border: none;
-        outline: none;
-    }
-
-    input:focus {
-        outline: 1px solid rgba(255, 255, 255, .5);
-    }
-
-    input::placeholder {
-        color: #fff;
+    .details-bar button span {
+        font-size: 2rem;
+        margin-left: 5px;
     }
 }
