@@ -14,27 +14,27 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatToolbarModule } from '@angular/material/toolbar';
 
 import { AppComponent } from './app.component';
-import { CaseSearchPageComponent } from './case-search-page/case-search-page.component';
-import { CaseSearchBarComponent } from './case-search-page/case-search-bar/case-search-bar.component';
-import { CaseFilterBarComponent } from './case-search-page/case-filter-bar/case-filter-bar.component';
-import { CaseSymptomListComponent } from './case-search-page/case-symptom-list/case-symptom-list.component';
-import { CaseListComponent } from './case-search-page/case-list/case-list.component';
-import { CaseSummaryComponent } from './case-search-page/case-list/case-summary/case-summary.component';
-import { CaseAdderBarComponent } from './case-search-page/case-adder-bar/case-adder-bar.component';
+import { ArticleSearchPageComponent } from './article-search-page/article-search-page.component';
+import { ArticleSearchBarComponent } from './article-search-page/article-search-bar/article-search-bar.component';
+import { ArticleFilterBarComponent } from './article-search-page/article-filter-bar/article-filter-bar.component';
+import { ArticleSymptomListComponent } from './article-search-page/article-symptom-list/article-symptom-list.component';
+import { ArticleListComponent } from './article-search-page/article-list/article-list.component';
+import { ArticleSummaryComponent } from './article-search-page/article-list/article-summary/article-summary.component';
+import { ArticleAdderBarComponent } from './article-search-page/article-adder-bar/article-adder-bar.component';
 import { AppRoutingModule } from './/app-routing.module';
-import { CaseDetailsPageComponent } from './case-details-page/case-details-page.component';
+import { ArticleDetailsPageComponent } from './article-details-page/article-details-page.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    CaseSearchPageComponent,
-    CaseSearchBarComponent,
-    CaseFilterBarComponent,
-    CaseSymptomListComponent,
-    CaseListComponent,
-    CaseSummaryComponent,
-    CaseAdderBarComponent,
-    CaseDetailsPageComponent
+    ArticleSearchPageComponent,
+    ArticleSearchBarComponent,
+    ArticleFilterBarComponent,
+    ArticleSymptomListComponent,
+    ArticleListComponent,
+    ArticleSummaryComponent,
+    ArticleAdderBarComponent,
+    ArticleDetailsPageComponent
   ],
   imports: [
     AppRoutingModule,

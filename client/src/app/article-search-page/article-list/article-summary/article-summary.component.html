@@ -1,0 +1,15 @@
+<div class="card">
+    <div class="header">
+        <div class="header-left">
+            <h2>{{ article.title }}</h2>
+            <p class="tags">{{ article.tags && article.tags.length ? article.tags.join(', ') : 'No tags' }}</p>
+        </div>
+        <div class="header-right">
+            <div class="category">{{ article.category }}</div>
+            <div>{{ article.date | date:'short' }}</div>
+        </div>
+    </div>
+    <ul class="symptoms">
+        <li *ngFor="let symptom of article.symptoms">{{ symptom }}</li>      
+    </ul>
+</div>

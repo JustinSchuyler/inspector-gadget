@@ -1,13 +1,13 @@
 import { NgModule } from '@angular/core';
 import { RouterModule , Routes } from '@angular/router';
 
-import { CaseSearchPageComponent } from './case-search-page/case-search-page.component';
-import { CaseDetailsPageComponent } from './case-details-page/case-details-page.component';
+import { ArticleSearchPageComponent } from './article-search-page/article-search-page.component';
+import { ArticleDetailsPageComponent } from './article-details-page/article-details-page.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'case-search', pathMatch: 'full' },
-  { path: 'case-search', component: CaseSearchPageComponent, data: { state: 'case-search' }},
-  { path: 'case-details/:id', component: CaseDetailsPageComponent, data: { state: 'case-details' }}
+  { path: '', redirectTo: 'article-search', pathMatch: 'full' },
+  { path: 'article-search', component: ArticleSearchPageComponent, data: { state: 'article-search' }},
+  { path: 'article-details/:id', component: ArticleDetailsPageComponent, data: { state: 'article-details' }}
 ];
 
 @NgModule({

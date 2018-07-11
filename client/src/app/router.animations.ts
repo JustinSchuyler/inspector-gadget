@@ -1,7 +1,7 @@
 import { animate, group, query, style, transition, trigger } from '@angular/animations';
 
 export const slideTransition = trigger('slideTransition', [
-    transition('case-details => case-search', [
+    transition('article-details => article-search', [
         query(':enter, :leave', style({ position: 'fixed', width: '100%' }), { optional: true }),
         group([
             query(':enter', [
@@ -14,7 +14,7 @@ export const slideTransition = trigger('slideTransition', [
             ], { optional: true })
         ])
     ]),
-    transition('case-search => case-details', [
+    transition('article-search => article-details', [
         query(':enter, :leave', style({ position: 'fixed', width: '100%' }), { optional: true }),
         group([
             query(':enter', [
