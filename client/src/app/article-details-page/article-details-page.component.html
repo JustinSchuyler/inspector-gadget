@@ -1,0 +1,26 @@
+<div *ngIf="article">
+    <h2>{{ article.title }} Details</h2>
+    <div><span>id: </span>{{article.id}}</div>
+    <div>{{ article.category }}</div>
+    <ul>
+        <li *ngFor="let tag of article.tags">
+          {{ tag }}
+        </li>
+    </ul>
+    <div>{{ article.date }}</div>
+    <ul>
+        <li *ngFor="let symptom of article.symptoms">
+          <div>{{ symptom }}</div>
+        </li>
+    </ul>
+    <div>{{ article.rootCause }}</div>
+    <div>{{ article.fixDescription }}</div>
+    <div>{{ article.fixSteps }}</div>
+    <div>{{ article.diagnosisSteps }}</div>
+    <ul>
+        <li *ngFor="let ticketURL of article.ticketURLs">
+          <div>{{ ticketURL }}</div>
+        </li>
+    </ul>
+</div>
+<button (click)="goBack()">Back to Article Search</button>
