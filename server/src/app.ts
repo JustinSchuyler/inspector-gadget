@@ -1,5 +1,6 @@
 import express from 'express';
 import cors from 'cors';
+import bodyParser from 'body-parser';
 import { ArticleController } from './controllers/article.controller';
 import { CategoryController } from './controllers/category.controller';
 
@@ -9,6 +10,7 @@ const articleController = new ArticleController();
 const categoryController = new CategoryController();
 
 app.use(cors());
+app.use(bodyParser.json());
 app.get(
     '/articles',
     articleController.getArticles
