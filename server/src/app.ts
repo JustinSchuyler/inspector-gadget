@@ -2,18 +2,20 @@ import express from 'express';
 import cors from 'cors';
 import bodyParser from 'body-parser';
 import { ArticleController } from './controllers/article.controller';
+import { ArticleService } from './services/article.service';
 import { CategoryController } from './controllers/category.controller';
 
 const port = 3000;
 const app = express();
-const articleController = new ArticleController();
+const articleService = new ArticleService();
+const articleController = new ArticleController(articleService);
 const categoryController = new CategoryController();
 
 app.use(cors());
 app.use(bodyParser.json());
 app.get(
     '/articles',
-    articleController.getArticles
+    articleController.getArticles.bind(articleController)
 );
 app.post(
     '/articles',
