@@ -1,14 +1,14 @@
 import express from 'express';
 import cors from 'cors';
 import bodyParser from 'body-parser';
-import { ArticleController } from './controllers/article.controller';
-import { ArticleService } from './services/article.service';
+import container from './config/ioc_config';
+import SERVICE_IDENTIFIER from './constants/identifiers';
+import { IArticleController } from './interfaces/article.controller.interface';
 import { CategoryController } from './controllers/category.controller';
 
 const port = 3000;
 const app = express();
-const articleService = new ArticleService();
-const articleController = new ArticleController(articleService);
+const articleController = container.get<IArticleController>(SERVICE_IDENTIFIER.IARTICLE_CONTROLLER);
 const categoryController = new CategoryController();
 
 app.use(cors());

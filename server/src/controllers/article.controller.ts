@@ -1,12 +1,12 @@
 import { Request, Response } from 'express';
+import { injectable, inject } from 'inversify';
+import { IArticleController } from '../interfaces/article.controller.interface';
 import { IArticleService } from '../interfaces/article.service.interface';
+import SERVICE_IDENTIFIER from '../constants/identifiers';
 
-export class ArticleController {
-    private _articleService: IArticleService;
-
-    constructor(articleService: IArticleService) {
-        this._articleService = articleService;
-    }
+@injectable()
+export class ArticleController implements IArticleController {
+    @inject(SERVICE_IDENTIFIER.IARTICLE_SERVICE) private _articleService: IArticleService;
 
     getArticles(req: Request, res: Response): void {
         const articles = this._articleService.getArticles();
