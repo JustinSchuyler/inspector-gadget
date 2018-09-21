@@ -1,7 +1,7 @@
 import { Request, Response } from 'express';
 import { injectable, inject } from 'inversify';
-import { IArticleController } from '../interfaces/article.controller.interface';
-import { IArticleService } from '../interfaces/article.service.interface';
+import { IArticleController } from './article.controller.interface';
+import { IArticleService } from './article.service.interface';
 import SERVICE_IDENTIFIER from '../constants/identifiers';
 
 @injectable()

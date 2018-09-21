@@ -1,10 +1,10 @@
 import 'reflect-metadata';
 import { Container } from 'inversify';
 
-import { ArticleController } from '../controllers/article.controller';
-import { IArticleController } from '../interfaces/article.controller.interface';
-import { ArticleService } from '../services/article.service';
-import { IArticleService } from '../interfaces/article.service.interface';
+import { ArticleController } from '../article/article.controller';
+import { IArticleController } from '../article/article.controller.interface';
+import { ArticleService } from '../article/article.service';
+import { IArticleService } from '../article/article.service.interface';
 import SERVICE_IDENTIFIER from '../constants/identifiers';
 
 let container = new Container();

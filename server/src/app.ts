@@ -3,8 +3,8 @@ import cors from 'cors';
 import bodyParser from 'body-parser';
 import container from './config/ioc_config';
 import SERVICE_IDENTIFIER from './constants/identifiers';
-import { IArticleController } from './interfaces/article.controller.interface';
-import { CategoryController } from './controllers/category.controller';
+import { IArticleController } from './article/article.controller.interface';
+import { CategoryController } from './category/category.controller';
 
 const port = 3000;
 const app = express();
