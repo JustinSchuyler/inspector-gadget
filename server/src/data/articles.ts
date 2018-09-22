@@ -19,5 +19,23 @@ export const articles = [
         fixSteps: '1. Catch the exception',
         diagnosisSteps: 'SELECT * FROM Remittance',
         ticketURLs: 'http://x.com'
+    }),
+    new Article({
+        id: 2,
+        category: 'Ledger',
+        tags: [
+            'Ledger',
+            'Payments'
+        ],
+        title: 'Payments Missing',
+        date: moment(),
+        symptoms: [
+            'A payment does not show on the ledger'
+        ],
+        rootCause: 'Uncaught exception',
+        fixDescription: 'To fix, catch the exception',
+        fixSteps: '1. Catch the exception',
+        diagnosisSteps: 'SELECT * FROM Payment',
+        ticketURLs: 'http://y.com'
     })
 ]

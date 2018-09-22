@@ -8,4 +8,8 @@ export class ArticleService implements IArticleService {
     getArticles(): Article[] {
         return articles;
     }
+
+    getArticleById(id: number): Article {
+        return articles.filter(article => article.id == id)[0];
+    }
 }

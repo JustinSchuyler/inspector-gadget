@@ -20,8 +20,8 @@ export class ArticleController implements IArticleController {
 
     getArticleById(req: Request, res: Response): void {
         const articleId = req.params.id;
-        console.log('get this article:', articleId);
-        res.send(articleId);
+        const article = this._articleService.getArticleById(articleId);
+        res.send(article);
     }
 
     updateArticleById(req: Request, res: Response): void {
