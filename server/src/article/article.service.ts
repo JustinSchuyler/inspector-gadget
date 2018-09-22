@@ -12,4 +12,9 @@ export class ArticleService implements IArticleService {
     getArticleById(id: number): Article {
         return articles.filter(article => article.id == id)[0];
     }
+
+    deleteArticle(id: number): void {
+        const index = articles.findIndex(article => article.id == id);
+        articles.splice(index, 1);
+    }
 }

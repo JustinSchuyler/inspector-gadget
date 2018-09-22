@@ -32,7 +32,7 @@ export class ArticleController implements IArticleController {
 
     deleteArticleById(req: Request, res: Response): void {
         const articleId = req.params.id;
-        console.log('delete this article:', articleId);
+        this._articleService.deleteArticle(articleId);
         res.status(204).end();
     }
 }
