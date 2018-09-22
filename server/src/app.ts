@@ -4,12 +4,12 @@ import bodyParser from 'body-parser';
 import container from './config/ioc_config';
 import SERVICE_IDENTIFIER from './constants/identifiers';
 import { IArticleController } from './article/article.controller.interface';
-import { CategoryController } from './category/category.controller';
+import { ICategoryController } from './category/category.controller.interface';
 
 const port = 3000;
 const app = express();
 const articleController = container.get<IArticleController>(SERVICE_IDENTIFIER.IARTICLE_CONTROLLER);
-const categoryController = new CategoryController();
+const categoryController = container.get<ICategoryController>(SERVICE_IDENTIFIER.ICATEGORY_CONTROLLER);
 
 app.use(cors());
 app.use(bodyParser.json());
@@ -19,23 +19,23 @@ app.get(
 );
 app.post(
     '/articles',
-    articleController.createArticle
+    articleController.createArticle.bind(articleController)
 );
 app.get(
     '/articles/:id',
-    articleController.getArticleById
+    articleController.getArticleById.bind(articleController)
 );
 app.put(
     '/articles/:id',
-    articleController.updateArticleById
+    articleController.updateArticleById.bind(articleController)
 );
 app.delete(
     '/articles/:id',
-    articleController.deleteArticleById
+    articleController.deleteArticleById.bind(articleController)
 );
 app.get(
     '/categories',
-    categoryController.getCategories
+    categoryController.getCategories.bind(categoryController)
 );
 
 app.listen(port, () => console.log(`API running on port ${port}`));
