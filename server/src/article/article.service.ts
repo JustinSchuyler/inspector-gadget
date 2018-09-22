@@ -17,4 +17,9 @@ export class ArticleService implements IArticleService {
         const index = articles.findIndex(article => article.id == id);
         articles.splice(index, 1);
     }
+
+    updateArticle(id: number, updatedArticle: Article): void {
+        let article = articles.find(article => article.id == id);
+        Object.assign(article, updatedArticle);
+    }
 }

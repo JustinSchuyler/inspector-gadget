@@ -3,6 +3,7 @@ import { injectable, inject } from 'inversify';
 import { IArticleController } from './article.controller.interface';
 import { IArticleService } from './article.service.interface';
 import SERVICE_IDENTIFIER from '../constants/identifiers';
+import { Article } from '../models/article';
 
 @injectable()
 export class ArticleController implements IArticleController {
@@ -26,8 +27,9 @@ export class ArticleController implements IArticleController {
 
     updateArticleById(req: Request, res: Response): void {
         const articleId = req.params.id;
-        console.log('update this article:', articleId);
-        res.send(articleId);
+        const updatedArticle = req.body as Article;
+        this._articleService.updateArticle(articleId, updatedArticle);
+        res.send();
     }
 
     deleteArticleById(req: Request, res: Response): void {

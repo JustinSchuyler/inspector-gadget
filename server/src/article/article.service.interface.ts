@@ -4,4 +4,5 @@ export interface IArticleService {
     getArticles(): Article[];
     getArticleById(id: number): Article;
     deleteArticle(id: number): void;
+    updateArticle(id: number, updatedArticle: Article): void;
 }
