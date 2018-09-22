@@ -10,7 +10,7 @@ export class ArticleService implements IArticleService {
     }
 
     getArticleById(id: number): Article {
-        return articles.filter(article => article.id == id)[0];
+        return articles.find(article => article.id == id);
     }
 
     deleteArticle(id: number): void {
