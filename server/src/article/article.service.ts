@@ -5,8 +5,17 @@ import { IArticleService } from './article.service.interface';
 
 @injectable()
 export class ArticleService implements IArticleService {
-    getArticles(): Article[] {
-        return articles;
+    getArticles(query: string): Article[] {
+        if (!query) {
+            return articles;
+        }
+        else {
+            const queryRegex = new RegExp(query, 'i');
+            return articles.filter(article => {
+                return queryRegex.test(article.title) ||
+                        queryRegex.test(article.fixDescription);
+            });
+        }
     }
 
     getArticleById(id: number): Article {

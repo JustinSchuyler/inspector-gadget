@@ -10,8 +10,9 @@ export class ArticleController implements IArticleController {
     @inject(SERVICE_IDENTIFIER.IARTICLE_SERVICE) private _articleService: IArticleService;
 
     getArticles(req: Request, res: Response): void {
-        const articles = this._articleService.getArticles();
-        res.send(articles);
+        const articles = this._articleService.getArticles(req.query.symptoms);
+        console.log('search:', req.query);
+        res.json(articles);
     }
 
     createArticle(req: Request, res: Response): void {

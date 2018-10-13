@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 import { Observable, BehaviorSubject, of, merge } from 'rxjs';
 import { debounceTime, take, map } from 'rxjs/operators';
 
@@ -19,7 +20,7 @@ export class ArticleSearchService {
   filterTerms$: Observable<any>;
   articleList$: Observable<Array<Article>>;
 
-  constructor() {
+  constructor(private http: HttpClient) {
     this.symptomList$ = this.symptomListSource.asObservable();
     this.filterTerms$ = this.filterTermsSource.asObservable();
     this.articleList$ = this.articleListSource.asObservable();
@@ -27,9 +28,9 @@ export class ArticleSearchService {
     merge(
       this.symptomList$.pipe(map(symptoms => ({ symptoms, filters: this.filterTerms }))),
       this.filterTerms$.pipe(map(filters => ({ symptoms: this.symptomList, filters })))
-    ).pipe(debounceTime(1500)).subscribe(searchTerms => {
+    ).pipe(debounceTime(500)).subscribe(searchTerms => {
       console.log('xhr terms:', searchTerms);
-      this.getArticles().pipe(take(1)).subscribe(articles => {
+      this.getArticles(searchTerms.symptoms).pipe(take(1)).subscribe(articles => {
         this.articleListSource.next(articles);
       });
     });
@@ -55,9 +56,8 @@ export class ArticleSearchService {
     this.symptomListSource.next(this.symptomList);
   }
 
-  getArticles(): Observable<Array<Article>> {
-    console.log('xhr: get articles');
-    return of(ARTICLES);
+  getArticles(symptoms: Array<string>): Observable<Array<Article>> {
+    return this.http.get<Array<Article>>('http://localhost:3000/articles', { params: { symptoms }});
   }
 
   getArticle(id: number): Observable<Article> {
