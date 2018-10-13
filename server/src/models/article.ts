@@ -12,6 +12,10 @@ export class Article {
     fixSteps: string;
     diagnosisSteps: string;
     ticketURLs: Array<string>;
+    numTicketLinks: number;
+    enhancementLink: string;
+    scriptNeeded: boolean;
+    resolved: boolean;
 
     constructor(params: any) {
         Object.assign(this, params);

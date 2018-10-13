@@ -1,0 +1,53 @@
+[
+    {
+      "id": 25,
+      "title": "LE25",
+      "category": "Ledger",
+      "symptoms": ["Ledger has an interest balance, yet the patient balance is $0. No interest should be due."],
+      "tags": ["Imbalance", "Ledger"],
+      "date": "2018-02-04T22:44:30.652Z",
+      "rootCause": "Unknown",
+      "fixDescription": "Run Script below, then issue custom OrthoFi refund for the amount of interest due. Script makes “Payment” and everything involved with creating a payment for the amount of interest due. The refund then balances that payment out, and puts the amount of interest into the correct place (Principle vs. Interest) Note: When refund made, the amount should automatically go towards amount principle,  not amount interest. If this does not automatically happen, write a script to transfer the amount over to AmountPrinciple and not AmountInterest in the PatientPayment table with the Id of the refund payment created by the OrthoFi refund.",
+      "fixSteps": "BEGIN TRANSACTION;",
+      "diagnosisSteps": "",
+      "ticketURLs": "https://www.pivotaltracker.com/story/show/160434845",
+      "numTicketLinks": 1,
+      "enhancementLink": "",
+      "scriptNeeded": "false",
+      "Resolved": "false"      
+    },
+    {
+      "id": 30,
+      "title": "PA30",
+      "category": "Payments",
+      "symptoms": ["A payment is being applied to invoices at the end of the payment plan instead of the past due invoices. This leaves the payment plan in a past due status and causes us to make contact to collect past due payments."],
+      "tags": ["Past Due", "Invoice"],
+      "date": "2018-06-18T22:44:30.652Z",
+      "rootCause": "Unable to find the root cause",
+      "fixDescription": "At the moment, the payment plan can be adjusted in the UI to fix the issue.",
+      "fixSteps": "BEGIN TRANSACTION;",
+      "diagnosisSteps": "", 
+      "ticketURLs": "https://www.pivotaltracker.com/story/show/160498564",
+      "numTicketLinks": 1,
+      "enhancementLink": "",
+      "scriptNeeded": "false",
+      "Resolved": "false"
+    },
+    {
+      "id": 37,
+      "title": "CC37",
+      "category": "Contract Concurrency",
+      "symptoms": "There are multiple issues related to this article but I chose Contract Concurrency because it's the root problem. The first issue seems to be dual device issue where two payment plans were created and linked to the same contract. Linking the two payment plans to the same contract led to the treatment cost amount to be doubled. The second issue is reinstating a payment plan re-instated both payment plans with different number of invoices for each payment plan. The last issue was when the payment plan was reinstated the insurance estimated contribution wasn't reinstated",
+      "tags": ["Concurrency", "Contract"],
+      "date": "2018-04-20T22:44:30.652Z",
+      "rootCause": "1- Contract created with two payment plans.2- Two payment plans reinstated instead of one. 3- Insurance estimated contribution not reinstated when payment plan was reinstated",
+      "fixDescription": "My proposed solution is to have a script that would correct the values for fields in the contract and payment plans and then have a PA adjust the payment plan by adding the insurance estimated contribution. The PA adjusting the payment plan by adding the estimated insurance will created a new payment plan with the correct number of invoices and amounts. The reason behind choosing this approach is to minimize the number of records altered by the script. Also, creating the new payment plan will make the ledger and the pay off amount match. In addition, the contract will look just like the initial contract when it was created. Furthermore, the newly created payment plan will be accounted for in the delta audit details, the payment plan adjustment history, and in the insurance claim .",
+      "fixSteps": "BEGIN TRANSACTION;",
+      "diagnosisSteps": "", 
+      "ticketURLs": "https://www.pivotaltracker.com/n/projects/1951113/stories/160901975",
+      "numTicketLinks": 1,
+      "enhancementLink":,
+      "scriptNeeded": "true",
+      "Resolved": "false"
+    }
+]

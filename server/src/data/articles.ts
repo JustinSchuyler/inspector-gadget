@@ -18,7 +18,8 @@ export const articles = [
         fixDescription: 'To fix, catch the exception',
         fixSteps: '1. Catch the exception',
         diagnosisSteps: 'SELECT * FROM Remittance',
-        ticketURLs: 'http://x.com'
+        ticketURLs: 'http://x.com',
+        enhancementLink: 'http://hi.com'
     }),
     new Article({
         id: 2,
