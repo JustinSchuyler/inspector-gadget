@@ -1,18 +1,24 @@
 <div [formGroup]="filters">
   <mat-form-field>
-      <mat-select formControlName="categoryControl" placeholder="Category">
-        <mat-option>None</mat-option>
-        <mat-option *ngFor="let category of categories" [value]="category">{{category}}</mat-option>
-      </mat-select>
-    </mat-form-field>
-    <mat-form-field>
-      <input matInput formControlName="startDateControl" [matDatepicker]="startDatepicker" placeholder="Start">
-      <mat-datepicker-toggle matSuffix [for]="startDatepicker"></mat-datepicker-toggle>
-      <mat-datepicker #startDatepicker></mat-datepicker>
-    </mat-form-field>
-    <mat-form-field>
-      <input matInput formControlName="endDateControl" [matDatepicker]="endDatepicker" placeholder="End">
-      <mat-datepicker-toggle matSuffix [for]="endDatepicker"></mat-datepicker-toggle>
-      <mat-datepicker #endDatepicker></mat-datepicker>
-    </mat-form-field>
+    <mat-select formControlName="categoryControl" placeholder="Category">
+      <mat-option>None</mat-option>
+      <mat-option *ngFor="let category of categories" [value]="category">{{category}}</mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput formControlName="startDateControl" [matDatepicker]="startDatepicker" placeholder="Start">
+    <mat-datepicker-toggle matSuffix [for]="startDatepicker"></mat-datepicker-toggle>
+    <mat-datepicker #startDatepicker></mat-datepicker>
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput formControlName="endDateControl" [matDatepicker]="endDatepicker" placeholder="End">
+    <mat-datepicker-toggle matSuffix [for]="endDatepicker"></mat-datepicker-toggle>
+    <mat-datepicker #endDatepicker></mat-datepicker>
+  </mat-form-field>
+  <mat-form-field>
+  <mat-select formControlName="verifiedControl" placeholder="Verification">
+      <mat-option>None</mat-option>
+      <mat-option *ngFor="let verify of verified" [value]="verify">{{verify}}</mat-option>
+    </mat-select>
+  </mat-form-field>
 </div>

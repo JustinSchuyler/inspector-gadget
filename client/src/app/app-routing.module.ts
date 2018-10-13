@@ -7,6 +7,7 @@ import { ArticleDetailsPageComponent } from './article-details-page/article-deta
 const routes: Routes = [
   { path: '', redirectTo: 'article-search', pathMatch: 'full' },
   { path: 'article-search', component: ArticleSearchPageComponent, data: { state: 'article-search' }},
+  { path: 'article-details', component: ArticleDetailsPageComponent, data: { state: 'article-details' }},
   { path: 'article-details/:id', component: ArticleDetailsPageComponent, data: { state: 'article-details' }}
 ];
 

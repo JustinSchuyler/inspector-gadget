@@ -11,6 +11,7 @@ import { ArticleSearchService } from '../../shared/services/article-search.servi
 })
 export class ArticleFilterBarComponent implements OnInit {
   categories: Array<string>;
+  verified: Array<string>;
   filters: FormGroup;
 
   constructor(private fb: FormBuilder, private articleSearchService: ArticleSearchService) { }
@@ -22,10 +23,17 @@ export class ArticleFilterBarComponent implements OnInit {
       'xyz'
     ];
 
+    this.verified = [
+      'Verified',
+      'Unverified',
+      'Show All'
+    ];
+
     this.filters = this.fb.group({
       categoryControl: '',
       startDateControl: '',
-      endDateControl: ''
+      endDateControl: '',
+      verifiedControl: ''
     });
 
     this.filters.valueChanges.subscribe(terms => {
@@ -38,5 +46,4 @@ export class ArticleFilterBarComponent implements OnInit {
       }
     });
   }
-
 }

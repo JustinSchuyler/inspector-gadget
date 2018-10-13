@@ -1,26 +1,58 @@
-<div *ngIf="article">
-    <h2>{{ article.title }} Details</h2>
-    <div><span>id: </span>{{article.id}}</div>
-    <div>{{ article.category }}</div>
-    <ul>
-        <li *ngFor="let tag of article.tags">
-          {{ tag }}
-        </li>
-    </ul>
-    <div>{{ article.date }}</div>
-    <ul>
-        <li *ngFor="let symptom of article.symptoms">
-          <div>{{ symptom }}</div>
-        </li>
-    </ul>
-    <div>{{ article.rootCause }}</div>
-    <div>{{ article.fixDescription }}</div>
-    <div>{{ article.fixSteps }}</div>
-    <div>{{ article.diagnosisSteps }}</div>
-    <ul>
-        <li *ngFor="let ticketURL of article.ticketURLs">
-          <div>{{ ticketURL }}</div>
-        </li>
-    </ul>
-</div>
-<button (click)="goBack()">Back to Article Search</button>
+<form [formGroup]="articleDetailForm" (ngSubmit)="onSubmit()">
+    <mat-form-field>
+        <input matInput type="text" formControlName="author" placeholder="Author">
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput type="text" formControlName="category" placeholder="Category">
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput type="text" formControlName="title" placeholder="Article Title">
+    </mat-form-field>
+    <mat-form-field>
+            <input matInput type="text" formControlName="rootCause" placeholder="Root Cause">
+        </mat-form-field>
+    <div formArrayName="symptoms">
+        <div *ngFor="let symptom of symptoms.controls; let i=index">
+            <mat-form-field>
+                <input matInput type="text" [formControlName]="i" placeholder="New Symptom">
+            </mat-form-field>
+        </div>
+        <button mat-raised-button type="button" (click)="addSymptom()">Add Symptom</button>
+    </div>
+    <div formArrayName="tags">
+        <mat-chip-list>
+            <mat-chip *ngFor="let tag of tags.controls; let i = index" color="accent" [selected]="true" [removable]="true" (removed)="tags.removeAt(i)">
+                {{tag.value}}
+                <mat-icon matChipRemove>cancel</mat-icon>
+            </mat-chip>
+        </mat-chip-list>
+        <mat-form-field>
+            <input matInput type="text" placeholder="New Tag" (keydown.enter)="$event.preventDefault() || addTag(tagInput)" #tagInput>
+        </mat-form-field>
+        <button mat-raised-button type="button" (click)="addTag(tagInput)">Add Tag</button>
+    </div>
+    <mat-form-field>
+        <input matInput type="text" formControlName="fixDescription" placeholder="Fix Description">
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput type="text" formControlName="fixSteps" placeholder="Fix Steps">
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput type="text" formControlName="diagnosisSteps" placeholder="Diagnosis Steps">
+    </mat-form-field>
+    <div formArrayName="ticketURLs">
+        <div *ngFor="let ticketURL of ticketURLs.controls; let i=index">
+            <mat-form-field>
+                <input matInput type="text" [formControlName]="i" placeholder="New Ticket URL">
+            </mat-form-field>
+        </div>
+        <button mat-raised-button type="button" (click)="addTicketURL()">Add URL</button>
+    </div>
+
+    <button mat-raised-button type="submit" [disabled]="!articleDetailForm.valid">Submit</button>
+</form>
+
+<button mat-raised-button type="button" (click)="goBack()">
+    <mat-icon>arrow_back</mat-icon>
+</button>
+

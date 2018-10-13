@@ -13,7 +13,9 @@ export const ARTICLES: Article[] = [
         fixDescription: 'Lorem ipsum dolor sit amet description',
         fixSteps: 'Lorem ipsum dolor sit amet steps',
         diagnosisSteps: 'Lorem ipsum dolor sit amet diagnosis',
-        ticketURLs: ['www.google.com', 'www.facebook.com']
+        ticketURLs: ['www.google.com', 'www.facebook.com'],
+        author: 'kev',
+        isVerified: true
     },
 
     {
@@ -27,6 +29,8 @@ export const ARTICLES: Article[] = [
         fixDescription: 'Lorem ipsum dolor sit amet description',
         fixSteps: 'Lorem ipsum dolor sit amet steps',
         diagnosisSteps: 'Lorem ipsum dolor sit amet diagnosis',
-        ticketURLs: ['www.gmail.com', 'www.youtube.com']
+        ticketURLs: ['www.gmail.com', 'www.youtube.com'],
+        author: 'j-dawg',
+        isVerified: false
     }
 ];

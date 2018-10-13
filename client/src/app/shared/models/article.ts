@@ -12,6 +12,8 @@ export class Article {
     fixSteps: string;
     diagnosisSteps: string;
     ticketURLs: Array<string>;
+    author: string;
+    isVerified: boolean;
 
     constructor(params?: any) {
     }
