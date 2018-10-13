@@ -26,7 +26,7 @@ export class ArticleFilterBarComponent implements OnInit {
     this.verified = [
       'Verified',
       'Unverified',
-      'Both'
+      'Show All'
     ];
 
     this.filters = this.fb.group({
